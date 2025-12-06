@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	  <UserSecretsId>fa0febff-3091-4bf0-8cda-536e157e3554</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.8" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+		<PackageReference Include="RestSharp" Version="111.4.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Areas\Admin\Data\" />
+		<Folder Include="Areas\Admin\Repository\Momo\" />
+		<Folder Include="wwwroot\backend\css\" />
+		<Folder Include="wwwroot\backend\images\" />
+		<Folder Include="wwwroot\media\logo\" />
+		<Folder Include="wwwroot\media\sliders\" />
+		<Folder Include="wwwroot\media\products\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\js\bootstrap.min.js" />
+	  <None Include="wwwroot\js\contact.js" />
+	  <None Include="wwwroot\js\gmaps.js" />
+	  <None Include="wwwroot\js\html5shiv.js" />
+	  <None Include="wwwroot\js\jquery.js" />
+	  <None Include="wwwroot\js\jquery.prettyPhoto.js" />
+	  <None Include="wwwroot\js\jquery.scrollUp.min.js" />
+	  <None Include="wwwroot\js\main.js" />
+	  <None Include="wwwroot\js\price-range.js" />
+	</ItemGroup>
+
+</Project>

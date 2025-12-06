@@ -1,0 +1,24 @@
+﻿@model PaymentResponseModel
+
+@{
+    ViewData["title"] = "Kết quả thông tin giao dịch thanh toán Vnpay thành công";
+}
+<h1>Thanh toán VNPAY thành công</h1>
+<h5>Thanh toán VnPay thành công với:</h5>
+<h6>OrderId : @Model.OrderId</h6>
+<h6>OrderInfo : @Model.OrderDescription</h6>
+<h6>Tổng tiền:  @Model.PaymentMethod</h6>
+<h6>Mã giao dịch:  @Model.TransactionId</h6>
+<h6>Mã thanh toán:  @Model.PaymentId</h6>
+<h5>Xem <a asp-controller="Account" asp-action="History">lịch sử đơn hàng đã đặt</a></h5>
+
+@* {
+    "orderDescription": "hieuchance2018 Thanh toán đặt hàng qua Vnpay tại Minh Tai Shop",
+    "transactionId": "14668801",
+    "orderId": "638670976467484080",
+    "paymentMethod": "VnPay",
+    "paymentId": "14668801",
+    "success": true,
+    "token": "ff76f62a635e525f87672449d71034c5043613deb6e4693b5ceaaf8e541354a29b50283d7ada5a857877bcfb3f650c267e44c852611d400973a88489c5a18e41",
+    "vnPayResponseCode": "00"
+} *@

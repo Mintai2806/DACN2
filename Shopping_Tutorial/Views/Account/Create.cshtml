@@ -1,0 +1,138 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/images/img-01.png" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+
+    <!-- Animate, Select2 -->
+    <link rel="stylesheet" href="~/vendor/animate/animate.css" />
+    <link rel="stylesheet" href="~/vendor/select2/select2.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/util.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center py-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+
+                <!-- IMAGE -->
+                <div class="col-lg-6 d-flex justify-content-center mb-4 mb-lg-0">
+                    <div class="login100-pic js-tilt" data-tilt>
+                        <img src="~/images/img-01.png"
+                             class="img-fluid"
+                             style="max-width: 600px; width: 100%;"
+                             alt="Register Image" />
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <div class="col-lg-6">
+                    <form asp-action="Create" asp-controller="Account" method="post"
+                          class="login100-form validate-form p-5"
+                          style="background: #ffffffd1; border-radius: 15px; min-height: 500px;">
+
+                        <h1 class="text-center mb-5 fw-bold display-3">New User Signup!</h1>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+                        <!-- Username -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Username"
+                                   class="fw-bold"
+                                   style="font-size: 2.2rem;">Username</label>
+                            <input asp-for="Username"
+                                   class="form-control"
+                                   style="font-size: 2rem; padding: 1.5rem;" />
+                            <span asp-validation-for="Username"
+                                  class="text-danger"
+                                  style="font-size: 1.6rem;"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Email"
+                                   class="fw-bold"
+                                   style="font-size: 2.2rem;">Email</label>
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   style="font-size: 2rem; padding: 1.5rem;" />
+                            <span asp-validation-for="Email"
+                                  class="text-danger"
+                                  style="font-size: 1.6rem;"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group mb-5">
+                            <label asp-for="Password"
+                                   class="fw-bold"
+                                   style="font-size: 2.2rem;">Password</label>
+                            <input asp-for="Password" type="password"
+                                   class="form-control"
+                                   style="font-size: 2rem; padding: 1.5rem;" />
+                            <span asp-validation-for="Password"
+                                  class="text-danger"
+                                  style="font-size: 1.6rem;"></span>
+                        </div>
+
+                        <!-- BUTTON -->
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary w-100 btn-lg py-4 fs-3">Create</button>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-danger w-100 btn-lg py-4 fs-3"
+                                   asp-action="Login"
+                                   asp-controller="Account">
+                                    Back to Login
+                                </a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-light text-center py-3 border-top">
+        <small>© 2025 - Your Website</small>
+    </footer>
+
+    <!-- Scripts -->
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <script src="~/vendor/tilt/tilt.jquery.min.js"></script>
+
+    <script>
+        $('.js-tilt').tilt({ scale: 1.1 });
+    </script>
+
+    <script src="~/js/main.js"></script>
+</body>
+</html>

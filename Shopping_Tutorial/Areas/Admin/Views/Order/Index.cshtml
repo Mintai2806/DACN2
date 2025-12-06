@@ -1,0 +1,97 @@
+﻿@model IEnumerable<OrderModel>
+
+@{
+    ViewData["title"] = "List Order";
+
+    
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>List Order</h3>
+
+    
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Order Code</th>
+                <th>Shipping Cost</th>
+                <th>Coupon Code</th>
+                <th>UserName</th>
+                <th>Order Status</th>
+                <th>Payment Method</th>
+                <th>Created Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderCode</td>
+                    <td>@item.ShippingCost.ToString("#,##0 VNĐ")</td>
+                    <td>@item.CouponCode</td>
+                    <td>@item.UserName</td>
+                    <td>
+                        @if (item.Status == 1)
+                        {
+                            <span class="text text-success">Đơn hàng mới</span>
+                        }
+                        else if (item.Status == 0)
+                        {
+                            <span class="text text-primary">Đã hoàn thành đơn hàng</span>
+                        }
+                        else
+                        {
+
+                            <span class="text text-danger">Đã hủy</span>
+                        }
+                    </td>
+                    <td>
+                        @{
+                            string text = item.PaymentMethod; //["MOMO","45435435"]
+                            string number_split = text.Split(" ")[1];
+                            string text_split = text.Split(" ")[0];
+                        }
+                        @if (item.PaymentMethod == null || item.PaymentMethod == "")
+                        {
+                            <span class="text text-primary">COD</span>
+                        }
+                        else
+                        {
+                            @if (text_split == "MOMO")
+                            {
+                                @text_split
+                                <a asp-action="PaymentMomoInfo" asp-route-orderId="@number_split" asp-controller="Order"><span class="text text-danger">@number_split</span></a>
+                            }
+                            else if (text_split == "VnPay")
+                            {
+                                @text_split
+                                <a asp-action="PaymentVnpayInfo" asp-route-orderId="@number_split" asp-controller="Order"><span class="text text-success">@number_split</span></a>
+                            }
+                            
+                        }
+                    </td>
+                    <td>@item.CreatedDate</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-action="ViewOrder" asp-controller="Order" asp-route-ordercode="@item.OrderCode">View Order</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Order" asp-route-ordercode="@item.OrderCode">Delete</a>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+</body>
+</html>
